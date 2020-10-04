@@ -876,7 +876,7 @@ MonoBehaviour:
           m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!1 &1102604544733868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,7 +2213,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Load Game
+  m_Text: Take Action
 --- !u!114 &114221732574626354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,7 +3830,7 @@ MonoBehaviour:
   loadGameDialog: {fileID: 1443681062563508}
   controllerSenText: {fileID: 114036040233595794}
   controllerSenSlider: {fileID: 114866046668010596}
-  controlSenFloat: 2
+  controlSenFloat: 4
   brightnessEffect: {fileID: 0}
   brightnessSlider: {fileID: 114414691622253428}
   brightnessText: {fileID: 114954420297510558}
@@ -4351,7 +4351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 4
 --- !u!1 &1491967241285874
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,7 +4929,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Game
+  m_Text: Play
 --- !u!114 &114021933306572124
 MonoBehaviour:
   m_ObjectHideFlags: 0

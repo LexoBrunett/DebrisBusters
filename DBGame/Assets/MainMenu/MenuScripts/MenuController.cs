@@ -9,6 +9,11 @@ namespace SpeedTutorMainMenuSystem
 {
     public class MenuController : MonoBehaviour
     {
+     
+        public string web1;
+        public string web2;
+        public string web3;
+        
         #region Default Values
         [Header("Default Menu Values")]
         [SerializeField] private float defaultBrightness;
@@ -19,7 +24,6 @@ namespace SpeedTutorMainMenuSystem
         [Header("Levels To Load")]
         public string _newGameButtonLevel;
         private string levelToLoad;
-
         private int menuNumber;
         #endregion
 
@@ -33,10 +37,9 @@ namespace SpeedTutorMainMenuSystem
         [SerializeField] private GameObject controlsMenu;
         [SerializeField] private GameObject confirmationMenu;
         [Space(10)]
-        [Header("Menu Popout Dialogs")]
+        [SerializeField] private GameObject loadGameDialog;
         [SerializeField] private GameObject noSaveDialog;
         [SerializeField] private GameObject newGameDialog;
-        [SerializeField] private GameObject loadGameDialog;
         #endregion
 
         #region Slider Linking
@@ -143,14 +146,14 @@ namespace SpeedTutorMainMenuSystem
                 menuNumber = 2;
             }
 
-            if (buttonType == "LoadGame")
+            if (buttonType == "TakeAction")
             {
                 menuDefaultCanvas.SetActive(false);
                 loadGameDialog.SetActive(true);
                 menuNumber = 8;
             }
 
-            if (buttonType == "NewGame")
+            if (buttonType == "Play")
             {
                 menuDefaultCanvas.SetActive(false);
                 newGameDialog.SetActive(true);
@@ -244,11 +247,12 @@ namespace SpeedTutorMainMenuSystem
         #endregion
 
         #region Dialog Options - This is where we load what has been saved in player prefs!
+        //mETODO PARA INICIO DEL JUEGO
         public void ClickNewGameDialog(string ButtonType)
         {
             if (ButtonType == "Yes")
             {
-                SceneManager.LoadScene(_newGameButtonLevel);
+                //Iniciar escena de juego
             }
 
             if (ButtonType == "No")
@@ -256,29 +260,28 @@ namespace SpeedTutorMainMenuSystem
                 GoBackToMainMenu();
             }
         }
-
+        //Funcion para cargar TAKE ACTION
         public void ClickLoadGameDialog(string ButtonType)
         {
-            if (ButtonType == "Yes")
+            web1 = "https://www.youtube.com/watch?v=itdYS9XF4a0&ab_channel=RealEngineering";
+
+            web2 = "https://www.nasa.gov/centers/hq/library/find/bibliographies/space_debris";
+            
+            web3 = "https://www.popularmechanics.com/space/g1928/sequester-space-junk/?slide=1";
+
+            if (ButtonType == "Dbyoutube")
             {
-                if (PlayerPrefs.HasKey("SavedLevel"))
-                {
-                    Debug.Log("I WANT TO LOAD THE SAVED GAME");
-                    //LOAD LAST SAVED SCENE
-                    levelToLoad = PlayerPrefs.GetString("SavedLevel");
-                    SceneManager.LoadScene(levelToLoad);
-                }
-
-                else
-                {
-                    Debug.Log("Load Game Dialog");
-                    menuDefaultCanvas.SetActive(false);
-                    loadGameDialog.SetActive(false);
-                    noSaveDialog.SetActive(true);
-                }
+                Application.OpenURL (web1);
             }
-
-            if (ButtonType == "No")
+            if (ButtonType == "DbNasa")
+            {
+                Application.OpenURL (web2);
+            }
+            if (ButtonType == "Solutions")
+            {
+                Application.OpenURL (web3);
+            }
+            if (ButtonType == "Back")
             {
                 GoBackToMainMenu();
             }
