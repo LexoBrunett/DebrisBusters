@@ -2,21 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[RequireComponent(typeof(RigidBody2D))]
 public class ShipBehav : MonoBehaviour
 {
-    RigidBody2D rb;
-    public float Velocidad = 8f;
+    public float velocidad = 4f;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        rb= GetComponent<RigidBody2D> ();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Velocidad * (Input.GetAxis("Horizontal") * Vector3.right + Input.GetAxis("Vertical") * Vector3.foward)
+        if (Input.GetKey(KeyCode.UpArrow)||Input.GetKey("w"))
+        {
+            transform.position += Vector3.up * velocidad * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.DownArrow)||Input.GetKey("s"))
+        {
+            transform.position += Vector3.down* velocidad * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.RightArrow)||Input.GetKey("d"))
+        {
+            transform.position += Vector3.right* velocidad * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey("a"))
+        {
+            transform.position += Vector3.left* velocidad * Time.deltaTime;
+        }
     }
 }
